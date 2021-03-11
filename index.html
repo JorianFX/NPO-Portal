@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPO Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+    <header>
+        <div id="logo"></div>
+    </header>
+    <section>
+        <span class="label">Televisie</span>
+        <div class="swiper-container container-tv">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" data-channel="1"><img src="icon/tv1.svg"></div>
+                <div class="swiper-slide" data-channel="2"><img src="icon/tv2.svg"></div>
+                <div class="swiper-slide" data-channel="3"><img src="icon/tv3.svg"></div>
+                <div class="swiper-slide" data-channel="1-extra"><img src="icon/tv1.svg"><span>Extra</span></div>
+                <div class="swiper-slide" data-channel="2-extra"><img src="icon/tv2.svg"><span>Extra</span></div>
+                <div class="swiper-slide" data-channel="3-extra"><img src="icon/tv3.svg"><span>Extra</span></div>
+            </div>
+            <div class="swiper-button-prev nav_tv_prev"></div>
+            <div class="swiper-button-next nav_tv_next"></div>
+          </div>
+    </section>
+    <section>
+        <span class="label">Televisie</span>
+        <div class="swiper-container container-radio">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" data-channel="radio1"><img src="icon/radio1.svg"></div>
+                <div class="swiper-slide" data-channel="radio2"><img src="icon/radio2.svg"></div>
+                <div class="swiper-slide" data-channel="3fm"><img src="icon/radio3fm.svg"></div>
+                <div class="swiper-slide" data-channel="radio4"><img src="icon/radio4.svg"></div>
+                <div class="swiper-slide" data-channel="radio5"><img src="icon/radio5.svg"></div>
+                <div class="swiper-slide" data-channel="funx"><img src="icon/radiofunx.svg"></div>
+                <div class="swiper-slide" data-channel="sterrennl"><img src="icon/radiosterren.svg"></div>
+                <div class="swiper-slide" data-channel="soulenjazz"><img src="icon/radio2.svg"><span>Soul & Jazz</span></div>
+                <div class="swiper-slide" data-channel="radio4/?channel=16"><img src="icon/radio4.svg"><span>Concerten</span></div>
+                <div class="swiper-slide" data-channel="3fm/?channel=14"><img src="icon/radio3fm.svg"><span>Alternative</span></div>
+                <div class="swiper-slide" data-channel="3fm/?channel=11"><img src="icon/radio3fm.svg"><span>KX</span></div>
+            </div>
+            <div class="swiper-button-prev nav_rad_prev"></div>
+            <div class="swiper-button-next nav_rad_next"></div>
+          </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js" integrity="sha512-BB7rb8ZBAxtdJdB7nwDijJH9NC+648xSzviK9Itm+5APTtdpgKz1+82bDl4znz/FBhd0R7pJ/gQtomnMpZYzRw==" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var anim = lottie.loadAnimation({
+        container: document.getElementById('logo'), // the dom element that will contain the animation
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'logo_animation.json' // the path to the animation json
+        });
+
+        anim.addEventListener("enterFrame", function (animation) {
+            if (animation.currentTime > (anim.totalFrames - 1)) {
+                anim.pause();
+            }
+        })
+
+    var swiper = new Swiper('.container-tv', {
+      slidesPerView: 4,
+      spaceBetween: 30,
+      centeredSlides: false,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.nav_tv_next',
+        prevEl: '.nav_tv_prev',
+      }
+    });
+
+    swiper.on('click', function () {
+        console.log(this.clickedSlide.dataset.channel);
+        location.href = "https://www.npostart.nl/live/npo-" + this.clickedSlide.dataset.channel;
+    });
+
+    var swiperradio = new Swiper('.container-radio', {
+      slidesPerView: 4,
+      spaceBetween: 30,
+      centeredSlides: false,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.nav_rad_next',
+        prevEl: '.nav_rad_prev',
+      }
+    });
+
+    swiperradio.on('click', function () {
+        console.log(this.clickedSlide.dataset.channel);
+        location.href = "https://radioplayer.npo.nl/" + this.clickedSlide.dataset.channel;
+    });
+
+    </script>
+</body>
+</html>

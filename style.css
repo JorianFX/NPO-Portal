@@ -1,0 +1,73 @@
+:root {
+  --swiper-theme-color: rgb(255, 109, 0) !important;
+}
+
+body {
+  background-color: #1e1e1e;
+  color: white;
+  font-family: 'NPO Sans Regular';
+}
+
+header {
+  margin-top: 140px;
+}
+
+#logo {
+  width: 250px;
+  display: block;
+  margin: 0 auto;
+}
+
+section {
+  width: 1440px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.label {
+  font-size: 24px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.swiper-slide {
+  cursor: pointer;
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 350px !important;
+  height: 175px !important;
+  border-radius: 6px;
+}
+
+.swiper-slide img {
+  height: 120px;
+}
+
+.swiper-slide span {
+  display: inline-block;
+  color: black;
+  font-size: 32px;
+  margin-left: -16px;
+}
+
+@font-face {
+  font-family: 'NPO Sans Regular';
+  src: url("font/NPOSans-RegularWeb-v1.0.eot") format("eot"), url("font/NPOSans-RegularWeb-v1.0.woff") format("woff");
+}
+
+@font-face {
+  font-family: 'NPO Sans Bold';
+  src: url("font/NPOSans-BoldWeb-v1.0.eot") format("eot"), url("font/NPOSans-BoldWeb-v1.0.woff") format("woff");
+}
+/*# sourceMappingURL=style.css.map */
